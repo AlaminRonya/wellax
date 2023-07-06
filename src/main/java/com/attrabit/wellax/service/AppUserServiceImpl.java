@@ -26,9 +26,8 @@ public class AppUserServiceImpl implements AdminAppUserService{
     }
 
     @Override
-    public void searchUser(String email) throws Exception {
-        final AppUserEntity appUser = getUser(email);
-
+    public AppUserEntity searchUser(String email) throws Exception {
+        return getUser(email);
     }
 
     @Override
