@@ -3,6 +3,7 @@ package com.attrabit.wellax.jwt_token.api;
 import com.attrabit.wellax.jwt_token.dto.AuthenticationRequest;
 import com.attrabit.wellax.jwt_token.dto.RegisterRequest;
 import com.attrabit.wellax.jwt_token.interfaces.AuthenticationApi;
+import com.attrabit.wellax.jwt_token.model.Role;
 import com.attrabit.wellax.jwt_token.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,9 @@ public class AuthenticationController implements AuthenticationApi {
 
     @Override
     public ResponseEntity<?> register(RegisterRequest dto) {
+        if (dto.getRole() == null){
+            dto.setRole(Role.USER);
+        }
         return new ResponseEntity<>(authenticationService.register(dto), HttpStatus.CREATED);
     }
 

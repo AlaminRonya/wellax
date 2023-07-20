@@ -13,6 +13,8 @@ public class AuthenticationResponse {
 
     //    @JsonProperty("access_token")
     private String accessToken;
+    private String role;
+    private String username;
 //    @JsonProperty("refresh_token")
 //    private String refreshToken;
 }

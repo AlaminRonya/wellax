@@ -57,6 +57,24 @@ public class WellaxApplication {
 					.build();
 			System.out.println("User token: " + service.register(user).getAccessToken());
 
+			var doctor = RegisterRequest.builder()
+					.firstname("Doctor")
+					.lastname("Doctor")
+					.email("doctor@mail.com")
+					.password("password")
+					.role(DOCTOR)
+					.build();
+			System.out.println("Doctor token: " + service.register(doctor).getAccessToken());
+
+			var patient = RegisterRequest.builder()
+					.firstname("Patient")
+					.lastname("Patient")
+					.email("patient@mail.com")
+					.password("password")
+					.role(PATIENT)
+					.build();
+			System.out.println("Patient token: " + service.register(patient).getAccessToken());
+
 		};
 	}
 
