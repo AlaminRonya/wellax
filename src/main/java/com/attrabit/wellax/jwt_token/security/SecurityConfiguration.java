@@ -32,6 +32,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/",
+                                "/page/**",
                                 "/adminAddDoctor",
                                 "/api/v1/auth/**",
                                 "/v2/api-docs",
