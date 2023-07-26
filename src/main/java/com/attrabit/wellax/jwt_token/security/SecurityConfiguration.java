@@ -33,6 +33,7 @@ public class SecurityConfiguration {
                         .requestMatchers(
                                 "/",
                                 "/page/**",
+                                "/css/**",
                                 "/adminAddDoctor",
                                 "/api/v1/auth/**",
                                 "/v2/api-docs",
