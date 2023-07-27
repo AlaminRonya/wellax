@@ -16,4 +16,8 @@ public class ViewController {
     public String login(Model model){
         return "login";
     }
+    @GetMapping("/afterLogin")
+    public String afterLogin(Model model){
+        return "afterLogin";
+    }
 }

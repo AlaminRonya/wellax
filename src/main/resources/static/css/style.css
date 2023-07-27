@@ -135,7 +135,7 @@ header {
 .phone-icon {
     width: 20px;
     height: 20px;
-    /*background-image: url(images/icon_callwhite.png);*/
+    background-image: url('/images/icon_callwhite.png');
     background-size: cover;
     margin-right: 10px;
 }

@@ -1,80 +1,330 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Login Page</title>
-  <link th:href="'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css'" th:rel="'stylesheet'">
-  <link href="/css/login.css">
-<!--  <script src="/js/postRequest.js"></script>-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wellax Web Application</title>
+  <!-- custom css link -->
+  <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+  <link th:href="@{/css/login.css}" rel="stylesheet" type="text/css" />
+<!--  <link rel="stylesheet" href="style.css">-->
+<!--  <link rel="stylesheet" href="./login.css" />-->
+
+  <!-- Google Front Link -->
+  <link rel="preconnect" th:href="'https://fonts.googleapis.com'">
+  <link rel="preconnect" th:href="'https://fonts.gstatic.com'" crossorigin>
+  <link rel="stylesheet" th:href="'https://fonts.googleapis.com/css2?family=Roboto&display=swap'" >
+  <link rel="stylesheet" th:href="'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'">
+
 </head>
 <body>
+<header>
+  <div>
+    <a href="#" class="logo"><img src="/images/main.png" alt=""></a>
+    <div class="right-header">
+      <div class="container1">
+        <div class="call-tagline"><p>QUICK GUIDE</p></div>
+        <a href="tel:3201" class="call-box1">
+          <div class="middle-align">
+            <div class="phone-icon"></div>
+            <div class="number">3201</div>
+          </div>
+        </a>
+      </div>
+      <div class="container2">
+        <div class="call-tagline"><p>HELP CENTER</p></div>
+        <a href="tel:+88 01783870929" class="call-box2">
+          <div class="middle-align">
+            <div class="phone-icon"></div>
+            <div class="number">+88 01783870929</div>
+          </div>
+        </a>
+      </div>
 
-<h1>AJAX POST Request Example</h1>
-<div>
-  <label for="email">Enter email:</label>
-  <input type="email" id="email" />
-  <br>
-  <label for="password">Enter password:</label>
-  <input type="password" id="password" />
-  <br>
-  <button onclick="sendData()">Send Data</button>
+      <div class="container3">
+        <div>
+          <a class="login-icon" href="#" onclick="toggleLoginPopup()"><i class="fas fa-user"></i></a>
+        </div>
+      </div>
+
+
+
+      <!-- <div class="container4">
+          <p>You Are not alone in case of Hospital emergency</p>
+      </div> -->
+    </div>
+  </div>
+  <div class="search-bar">
+    <input type="text" placeholder="Doctor, Consultant, Hospital, Diagnostic, Medicine Search">
+    <button type="submit"><i class="fas fa-search"></i></button>
+  </div>
+  </div>
+</header>
+
+
+<nav class="core-services">
+  <ul>
+    <li class="selected"><a href="index.html">Core Services</a></li>
+    <li><a href="guide-services.html">Guide Services</a></li>
+    <li><a href="home-care-services.html">Home Care Services</a></li>
+  </ul>
+</nav>
+<div class="vertical-line-container">
+  <div class="vertical-line"></div>
 </div>
-<script>
-  function sendData() {
-    const inputEmail = document.getElementById("email");
-    const inputPassword = document.getElementById("password");
+<nav class="health-services">
+  <ul>
+    <li class="selected"><a href="AllDoctor.html">Doctor</a></li>
+    <li><a href="hospital.html">Hospital</a></li>
+    <li><a href="diagnostic.html">Diagnostic</a></li>
+    <li><a href="pharmacy-and-store.html">Pharmacy and Store</a></li>
+  </ul>
+</nav>
 
-    const userCredentials = {
-      email: inputEmail.value,
-      password: inputPassword.value
-    };
+<div class="nav1-container">
+  <a href="#">
+    <div class="boxes-container">
+      <div class="box">
+        <div class="box-content">
+          <img src="/images/icon_appointment.png" alt="Image">
+        </div>
+        <p>Book an Appointment</p>
+      </div>
+    </div>
+  </a>
+  <a href="#">
+    <div class="boxes-container">
+      <div class="box">
+        <div class="box-content">
+          <img src="/images/icon_findhospital.png" alt="Image">
+        </div>
+        <p>Find Hospital</p>
+      </div>
+    </div>
+  </a>
+  <a href="#">
+    <div class="boxes-container">
+      <div class="box">
+        <div class="box-content">
+          <img src="/images/icon_videoconsult.png" alt="Image">
+        </div>
+        <p>Video Consult</p>
+      </div>
+    </div>
+  </a>
 
-    console.log(userCredentials);
+  <a href="#">
+    <div class="boxes-container">
+      <div class="box">
+        <div class="box-content">
+          <img src="/images/icon_opinion.png" alt="Image">
+        </div>
+        <p>Get Medical Second Opinion</p>
+      </div>
+    </div>
+  </a>
 
-    // Create an object with the data you want to send
-    // const requestData = {
-    //     data: data
-    // };
+  <a href="#">
+    <div class="boxes-container">
+      <div class="box">
+        <div class="box-content">
+          <img src="/images/icon_home.png" alt="Image">
+        </div>
+        <p>Home Care Services</p>
+      </div>
+    </div>
+  </a>
 
-    // Perform the AJAX POST request
-    fetch("/api/v1/auth/authenticate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        'Authorization': 'True'
-      },
-      body: JSON.stringify(userCredentials)
-    })
-            .then(response => {
-              if (!response.ok) {
-                throw new Error("Network response was not ok");
-              }
-              return response.json();
-            })
-            .then(data => {
-              // Handle the response from the server
+  <a href="#">
+    <div class="boxes-container">
+      <div class="box">
+        <div class="box-content">
+          <img src="/images/icon_buymedicine.png" alt="Image">
+        </div>
+        <p>Buy Medicine</p>
+      </div>
+    </div>
+  </a>
+</div>
 
-              console.log("Response from server:", data);
-              localStorage.setItem('role', data.role);
-              localStorage.setItem('jwtToken', data.accessToken);
-              localStorage.setItem("username", data.username);
-              redirectToHomePage('/page');
-            })
-            .catch(error => {
-              // Handle any errors that occurred during the request
-              console.error("Error:", error);
-            });
-  }
-  function redirectToHomePage(url) {
-    // Redirect to the home page
-    window.location.href = url;
-  }
-</script>
+<div class="nav2-container">
+  <div class="boxes-container2">
+    <div class="box2">
+      <div class="box-content2">
+        <img src="/images/doctor.png" alt="Image">
+      </div>
+      <div class="doctor-name"><p>Dr. Olivia Ivy</p></div>
+      <div class="doctor-title">Professor</div>
+      <div class="doctor-profile"><a href="#">Details Profile > </a></div>
+      <div class="doctor-contact1">
+        <a class="doctor-icon" href="sms:+1234567890?body=Hello%20there">
+          <img src="/images/icon_msg.png" alt="">
+        </a>
+        <a class="doctor-icon" href="tel:+1234567890">
+          <img src="/images/icon_call.png" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="boxes-container2">
+    <div class="box2">
+      <div class="box-content2">
+        <img src="/images/doctor.png" alt="Image">
+      </div>
+      <div class="doctor-name"><p>Dr. Olivia Ivy</p></div>
+      <div class="doctor-title">Professor</div>
+      <div class="doctor-profile"><a href="#">Details Profile > </a></div>
+      <div class="doctor-contact2">
+        <a class="doctor-icon" href="sms:+1234567890?body=Hello%20there">
+          <img src="/images/icon_msg.png" alt="">
+        </a>
+        <a class="doctor-icon" href="tel:+1234567890">
+          <img src="/images/icon_call.png" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="boxes-container2">
+    <div class="box2">
+      <div class="box-content2">
+        <img src="/images/doctor.png" alt="Image">
+      </div>
+      <div class="doctor-name"><p>Dr. Olivia Ivy</p></div>
+      <div class="doctor-title">Professor</div>
+      <div class="doctor-profile"><a href="#">Details Profile > </a></div>
+      <div class="doctor-contact3">
+        <a class="doctor-icon" href="sms:+1234567890?body=Hello%20there">
+          <img src="/images/icon_msg.png" alt="">
+        </a>
+        <a class="doctor-icon" href="tel:+1234567890">
+          <img src="/images/icon_call.png" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="boxes-container2">
+    <div class="box2">
+      <div class="box-content2">
+        <img src="/images/doctor.png" alt="Image">
+      </div>
+      <div class="doctor-name"><p>Dr. Olivia Ivy</p></div>
+      <div class="doctor-title">Professor</div>
+      <div class="doctor-profile"><a href="#">Details Profile > </a></div>
+      <div class="doctor-contact4">
+        <a class="doctor-icon" href="sms:+1234567890?body=Hello%20there">
+          <img src="/images/icon_msg.png" alt="">
+        </a>
+        <a class="doctor-icon" href="tel:+1234567890">
+          <img src="/images/icon_call.png" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="boxes-container2">
+    <div class="box2">
+      <div class="box-content2">
+        <img src="/images/doctor.png" alt="Image">
+      </div>
+      <div class="doctor-name"><p>Dr. Olivia Ivy</p></div>
+      <div class="doctor-title">Professor</div>
+      <div class="doctor-profile"><a href="#">Details Profile > </a></div>
+      <div class="doctor-contact5">
+        <a class="doctor-icon" href="sms:+1234567890?body=Hello%20there">
+          <img src="/images/icon_msg.png" alt="">
+        </a>
+        <a class="doctor-icon" href="tel:+1234567890">
+          <img src="/images/icon_call.png" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="boxes-container2">
+    <div class="box2">
+      <div class="box-content2">
+        <img src="/images/doctor.png" alt="Image">
+      </div>
+      <div class="doctor-name"><p>Dr. Olivia Ivy</p></div>
+      <div class="doctor-title">Professor</div>
+      <div class="doctor-profile"><a href="#">Details Profile > </a></div>
+      <div class="doctor-contact6">
+        <a class="doctor-icon" href="sms:+1234567890?body=Hello%20there">
+          <img src="/images/icon_msg.png" alt="">
+        </a>
+        <a class="doctor-icon" href="tel:+1234567890">
+          <img src="/images/icon_call.png" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 
-<script th:src="'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js'" th:integrity="'sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ='" th:crossorigin="'anonymous'"></script>
-<script th:src="'https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js'"></script>
-<script th:src="'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js'"></script>
-<script th:src="'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'"></script>
+<div class="loginPageContainer">
+  <div class="login-page">
+    <div class="container">
+      <div class="login-page-logo">
+        <a href="index.html"><img src="/images/main.png" alt="Company Logo"></a>
+      </div>
+
+      <div class="signup">
+        <a class="signup-button" href="signup.html">Sign Up</a>
+      </div>
+
+      <div class="login-tagline">
+        <p>Get the most advanced emergency care</p>
+        <p>anywhere in just minutes</p>
+      </div>
+      <div class="login-form">
+        <input type="text" placeholder="ENTER COUNTRY*" class="input-box">
+        <input type="email" id="email" placeholder="ENTER PHONE NUMBER*" class="input-box">
+        <input type="password" id="password" placeholder="PASSWORD*" class="input-box">
+
+        <div class="social-logos">
+          <a href="#" class="social-link">
+            <div class="social-logo facebook"><img src="/images/facebook.png" alt=""></div>
+          </a>
+          <a href="#" class="social-link">
+            <div class="social-logo google"><img src="/images/google.png" alt=""></div>
+          </a>
+          <a href="#" class="social-link">
+            <div class="social-logo twitter"><img src="/images/twitter.png" alt=""></div>
+          </a>
+          <a href="#" class="social-link">
+            <div class="social-logo linkedin"><img src="/images/linkdin.png" alt=""></div>
+          </a>
+        </div>
+        <a href="#" ><button class="login-button" onclick="sendData()">LOGIN</button>
+        </a>
+
+        <a class="forgot-password-button" href="#" >Forgot Password</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- JavaScript Link -->
+<script type="module" src="script.js"></script>
+
+
+<footer>
+  <div class="footer">
+    <p>© 2023 Wellax, all rights reserved.</p>
+    <a href="#">About Company</a>
+    <a href="#">View all wellax contacts @ Contact us</a>
+  </div>
+
+</footer>
+
+
+<script th:src="@{/js/login.js}"></script>
 </body>
 </html>
+
